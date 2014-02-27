@@ -1,0 +1,4 @@
+metal_detector_msgs/Coil[] coil
+---
+bool success
+string status_message

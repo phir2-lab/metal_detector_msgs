@@ -1,0 +1,33 @@
+<package>
+  <name>metal_detector_msgs</name>
+  <version>1.0.0</version>
+  <description>
+	ROS messages for metal detector hardware drivers.
+</description>
+  <maintainer email="goncabrita@gmail.com">Gonçalo Cabrita</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/metal_detector_msgs</url>
+
+  <author>Gonçalo Cabrita</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+  <build_depend>message_generation</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>message_runtime</run_depend>
+  <run_depend>std_msgs</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+  <!-- <test_depend>geometry_msgs</test_depend> -->
+
+<export>
+    <rosdoc config="rosdoc.yaml"/>
+</export>
+
+</package>
