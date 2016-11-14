@@ -10,7 +10,7 @@ This was originally design for [HRATC2017](http://inf.ufrgs.br/hratc2017/HRATC20
 
 # Credits
 
-- The original eletronics board was designed by (**Augusto, colocar URL e nome do projeto original**)
+- The original eletronics board was designed by (http://www.lucaslab.grandhost.pl/lucaslab/wykrywacz_PI.htm)
 - The integration of the eletronics board with Arduino is by Augusto Bergamin;
 - The ROS node design and ROS launch is by Renan Maidana.
 
