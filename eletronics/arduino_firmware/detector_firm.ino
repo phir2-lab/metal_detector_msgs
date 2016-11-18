@@ -27,12 +27,14 @@ ISR (INT0_vect)
 {
   if(swit >= 10)
   {
-    if(Rstate == true)
+    if(Rstate == true){
       freq1 = (1/((micros() - temp)/1000000));
   	  freq2 = 0;
-    else
+    }
+    else{
       freq2 = (1/((micros() - temp)/1000000));
       freq1 = 0;
+    }
   }
   temp = micros();
 }
