@@ -20,12 +20,21 @@ coil_msg.header.seq = 0
 
 # Argument parser
 parser = argparse.ArgumentParser()
+
+# ROSLAUNCH arguments
+parser.add_argument("__name",
+                    help='ROSLAUNCH name for the node')
+parser.add_argument("__log",
+                    help='ROSLAUNCH log for the node')
+
+# Regular arguments
 parser.add_argument("-b", "--baud",
                     default=9600,
                     help='defines baud rate of serial port')
 parser.add_argument("--vid",
                     default='2341',
                     help='vendor ID of Arduino device (default is 2341 for Arduino UNO)')
+
 args = parser.parse_args()
 
 def find_arduino(vid='2341'):
