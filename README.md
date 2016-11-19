@@ -16,7 +16,7 @@ Or run the "arduino_node.py" node with:
 rosrun metal_detector_msgs arduino_node.py [args]
 ```
 
-The arguments to be passed to the node are:
+The arguments (optional) to be passed to the node are:
 * -b, --baud : Serial BAUD rate of the Arduino (default is 9600)
 * --vid 	 : Vendor ID of the Arduino (default is 2341 for Arduino UNO)
 
