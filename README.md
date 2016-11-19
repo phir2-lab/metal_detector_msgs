@@ -40,15 +40,15 @@ Clone this package to your [Catkin Workspace](http://wiki.ros.org/catkin/Tutoria
 
 * Can't connect to my Arduino
 
-The "arduino_node.py" sweeps your /dev/ folder for all available serial connections and finds the Arduino automatically via its Vendor ID (vid). The Arduino's vid can be set through the "--vid" argument when running the node, or by changing the "args" parameter in the launch file. To find out what your Arduino vid is, run the "lsusb" command in a terminal. The vid will be there, like this:
+The "arduino_node.py" sweeps your /dev/ folder for all available serial connections and finds the Arduino automatically via its Vendor ID (vid). The Arduino's vid can be set through the "--vid" argument when running the node, or by changing the "args" parameter in the launch file. To find out what your Arduino vid is, connect it to a computer and run the "lsusb" command in a terminal. The vid will be there, like this:
 
-```
+<pre>
 Bus 002 Device 006: ID 0cf3:e005 Atheros Communications, Inc. 
 Bus 002 Device 003: ID 0c45:6712 Microdia 
-Bus 002 Device 009: ID **2341**:0043 Arduino SA Uno R3 (CDC ACM)
+Bus 002 Device 009: ID <b>2341</b>:0043 Arduino SA Uno R3 (CDC ACM)
                           ^
                        [This is your VID]   
-```
+</pre>
 
 ## Credits
 
