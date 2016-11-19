@@ -1,4 +1,4 @@
-<!-- Launch file for the metal detector, using rosserial -->
+<!-- Launch file for the metal detector -->
 <launch>
-	<node name="detector" pkg="rosserial_python" type="serial_node.py" output="screen" args="_port:=/dev/ttyACM0"/>
+	<node name="detector" pkg="metal_detector_msgs" type="arduino_node.py" output="screen" args="-b 9600 --vid 2341"/>
 </launch>
