@@ -10,7 +10,7 @@ from metal_detector_msgs.msg import Coil
 
 # ROS Parameters
 pub_freq = 10
-pub_topic = 'detector'
+pub_topic = 'metal_detector'
 ser = serial.Serial()
 
 # Coil message
