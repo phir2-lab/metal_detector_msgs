@@ -63,6 +63,12 @@ def find_arduino(vid='2341'):
 	return None
 
 def connect(timeout=10):
+	'''
+	Attempts to connect to a serial port specified by "ser.port".
+
+	Arguments:
+		timeout - Time to display message "Could not find Arduino"
+	'''
 	t1 = time.time()
 	while ser.port == None:
 		t2 = time.time()
