@@ -104,9 +104,19 @@ def detector():
 		# Get current time for coil message
 		coil_msg.header.stamp = rospy.Time.from_sec(time.time())
 
+		# Get calibration parameters from parameter server
+		try:
+			sat = float(rospy.get_param('calibration/sat'))
+		except KeyError:	# rospy will raise this error if the parameter is not found
+			sat = 1.0		# default to 1.0
+		try:
+			ref = float(rospy.get_param('calibration/ref'))
+		except KeyError: 	# rospy will raise this error if the parameter is not found
+			ref = 1.0		# default to 1.0
+
 		# Parse the buffer string and get the last available data (in pairs)
 		try:
-			buf_str = buf_str + ser.read(ser.inWaiting())
+			buf_str += ser.read(ser.inWaiting())
 		except IOError:
 			rospy.loginfo("Lost connection to Arduino! Trying to reestablish connection...")
 			ser.close()
@@ -121,10 +131,14 @@ def detector():
 			buf_str = lines[-1]
 
 		data = last_received.split(',')
-	
+
+		# Normalize the data going to the coils
+		coil1_val = min((ref*float(data[0]))/sat, ref)		# Caps coil reading to the reference
+		coil2_val = min((ref*float(data[1]))/sat, ref)
+
 		# Catch some silly errors (when serial sends two ","s for example)
 		try:
-			coil_msg.channel = ( int(data[0]), int(data[1]) )
+			coil_msg.channel = ( coil1_val, coil2_val )
 		except (ValueError, IndexError):
 			pass
 		pub.publish(coil_msg)
