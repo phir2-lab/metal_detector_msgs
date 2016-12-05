@@ -38,7 +38,7 @@ The package uses ROS' parameter server to get and set its calibration parameters
 * calibration/ref : The desired reference value (when coils saturate)
 
 By default, these parameters are set to "1.0".
-The node also caps the readings to the reference value. In other words, it returns reading in the range of [0 - ref].
+The node also caps the readings to the reference value. In other words, it returns readings in the range of [0 - ref].
 
 The parameters can be set statically via the "detector.launch" file. Just change the <param> tags accordingly, as seen in the example below:
 
