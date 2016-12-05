@@ -30,6 +30,33 @@ This can also be seen when passing "-h" as argument for the node.
 
 Clone this package to your [Catkin Workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace) "src" folder and [build your catkin packages](http://wiki.ros.org/catkin/Tutorials/using_a_workspace).
 
+## Parameters
+
+The package uses ROS' parameter server to get and set its calibration parameters. They are defined as:
+
+* calibration/sat : Saturation value for the coils in Hz
+* calibration/ref : The desired reference value (when coils saturate)
+
+By default, these parameters are set to "1.0".
+The node also caps the readings to the reference value. In other words, it returns reading in the range of [0 - ref].
+
+The parameters can be set statically via the "detector.launch" file. Just change the <param> tags accordingly, as seen in the example below:
+
+```
+<param name="calibration/sat" type="double" value="1853" /> 
+```
+
+Alternatively, to set the parameters dynamically, use the command below after launching the detector node:
+
+```
+rosparam set calibration/sat 1853
+```
+
+To check the value of a parameter, use the "rosparam get" command:
+```
+rosparam get calibration/sat
+```
+
 ## Package organization
 
 - model: has the Solidworks and Gazebo models for the metal detector;
