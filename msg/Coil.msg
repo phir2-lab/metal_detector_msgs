@@ -1,3 +1,3 @@
 Header header
-int32[] channel
-int32[] zero
+float32[] channel
+float32[] zero
