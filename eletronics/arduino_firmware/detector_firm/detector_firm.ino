@@ -10,7 +10,7 @@ bool Rstate = 0;
 //Interrupt vector for INT0 (pin D2)
 ISR (INT0_vect)
 {
-  if(swit >= 500)
+  if(swit >= 400)
   {
     if(Rstate == true){
       freq1 = (1/((micros() - temp)/1000000));
@@ -43,7 +43,7 @@ void setup()
 void loop()
 {
   //After some time, switch coils
-  if(swit >= 1000)
+  if(swit >= 800)
   { 
     Rstate = not(Rstate); 
     swit = 0;
