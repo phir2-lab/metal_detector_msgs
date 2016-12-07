@@ -30,6 +30,10 @@ This can also be seen when passing "-h" as argument for the node.
 
 Clone this package to your [Catkin Workspace](http://wiki.ros.org/catkin/Tutorials/create_a_workspace) "src" folder and [build your catkin packages](http://wiki.ros.org/catkin/Tutorials/using_a_workspace).
 
+## Topic
+
+The node receives frequency measurements from an Arduino via Serial Communication and publishes a topic of the Coil message type, of which the definition can be seen in the "msg" folder. Please see the readme of the "msg" folder for more information regarding interface with the coils.
+
 ## Parameters
 
 The package uses ROS' parameter server to get and set its calibration parameters. They are defined as:
