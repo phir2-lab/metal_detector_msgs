@@ -2,8 +2,8 @@
 #include <avr/interrupt.h>
 
 volatile double temp;
-volatile int freq1 = 0;
-volatile int freq2 = 0;
+volatile int freqL = 0;
+volatile int freqR = 0;
 long int swit = 0;
 bool Rstate = 0;
 
@@ -12,11 +12,13 @@ ISR (INT0_vect)
 {
   if(swit >= 400)
   {
+  	//Bobina direita
     if(Rstate == true){
-      freq1 = (1/((micros() - temp)/1000000));
+      freqR = (1/((micros() - temp)/1000000));
   	}
+  	//Bobina esquerda
     else{
-      freq2 = (1/((micros() - temp)/1000000));
+      freqL = (1/((micros() - temp)/1000000));
   	}
   }
   temp = micros();
@@ -48,13 +50,13 @@ void loop()
     Rstate = not(Rstate); 
     swit = 0;
     digitalWrite(13,Rstate);
-    freq1 = 0;
-    freq2 = 0;
+    freqL = 0;
+    freqR = 0;
   }
   
-  Serial.print(freq1);
+  Serial.print(freqL);
   Serial.print(",");
-  Serial.print(freq2);
+  Serial.print(freqR);
   Serial.print("\n");
 
   swit++;
