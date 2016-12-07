@@ -18,7 +18,7 @@ ser = serial.Serial()
 
 # Coil message
 coil_msg = Coil()
-coil_msg.header.frame_id = 'Coil'
+coil_msg.header.frame_id = 'Coils'
 coil_msg.header.seq = 0
 
 # Argument parser
@@ -135,9 +135,8 @@ def detector():
 		# Catch some silly errors (when serial sends two ","s for example)
 		try:
 			# Normalize the data going to the coils, and caps then to the interval [0 - ref]
-			coilL_val = max(0, min((ref*float(data[0]))/sat, ref))
-			coilR_val = max(0, min((ref*float(data[1]))/sat, ref))
-			coil_msg.channel = ( coilL_val, coilR_val )
+			coil_msg.left_coil = max(0, min((ref*float(data[0]))/sat, ref))
+			coil_msg.right_coil = max(0, min((ref*float(data[1]))/sat, ref))
 		except (ValueError, IndexError):
 			pass
 		pub.publish(coil_msg)
