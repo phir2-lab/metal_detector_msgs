@@ -1,8 +1,3 @@
 ### Note
 
-In the topic published by the metal detector node, the channel field of the Coil message type holds the measurements for both coils. Considering a posterior view of the robot (from behind), the measurements correspond to:
-
-* channel[0] -> Left coil
-* channel[1] -> Right coil
-
-The coils measurements are read one at a time, and switching between coils occurs in a fixed interval.
+In the topic published by the metal detector node, the coils' measurements are contained in the "left_coil" and "right_coil" for the left and right coils respectively, in the Coil message type (Coil.msg). The coils are measured one at a time, and switching between them occurs in a fixed interval.
