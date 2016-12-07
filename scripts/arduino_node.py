@@ -132,16 +132,12 @@ def detector():
 
 		data = last_received.split(',')
 
-		# Normalize the data going to the coils
-		try:
-			coil1_val = min((ref*float(data[0]))/sat, ref)		# Caps coil reading to the reference
-			coil2_val = min((ref*float(data[1]))/sat, ref)
-		except ValueError:
-			pass
-
 		# Catch some silly errors (when serial sends two ","s for example)
 		try:
-			coil_msg.channel = ( coil1_val, coil2_val )
+			# Normalize the data going to the coils, and caps then to the interval [0 - ref]
+			coilL_val = max(0, min((ref*float(data[0]))/sat, ref))
+			coilR_val = max(0, min((ref*float(data[1]))/sat, ref))
+			coil_msg.channel = ( coilL_val, coilR_val )
 		except (ValueError, IndexError):
 			pass
 		pub.publish(coil_msg)
