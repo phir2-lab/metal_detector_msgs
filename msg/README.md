@@ -5,4 +5,4 @@ In the topic published by the metal detector node, the channel field of the Coil
 * channel[0] -> Left coil
 * channel[1] -> Right coil
 
-The coils measurements are read one at a time, and switching between coils occurs ina fixed interval.
+The coils measurements are read one at a time, and switching between coils occurs in a fixed interval.
