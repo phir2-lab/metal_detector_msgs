@@ -134,7 +134,7 @@ def detector():
 
 		# Catch some silly errors (when serial sends two ","s for example)
 		try:
-			# Normalize the data going to the coils, and caps then to the interval [0 - ref]
+			# Normalize the data comming from the coils, and caps them to the interval [0 - ref]
 			coil_msg.left_coil = max(0, min((ref*float(data[0]))/sat, ref))
 			coil_msg.right_coil = max(0, min((ref*float(data[1]))/sat, ref))
 		except (ValueError, IndexError):
