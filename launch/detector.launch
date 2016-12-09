@@ -1,0 +1,9 @@
+<!-- Launch file for the metal detector -->
+<launch>
+	
+	<node name="detector" pkg="metal_detector_msgs" type="arduino_node.py" output="screen" args="-b 9600 --vid 2341">
+		<param name="calibration/sat" type="double" value="1.0" />
+		<param name="calibration/ref" type="double" value="1.0" />
+	</node>
+
+</launch>

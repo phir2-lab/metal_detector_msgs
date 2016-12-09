@@ -1,3 +1,3 @@
 Header header
-int32[] channel
-int32[] zero
+float32 left_coil
+float32 right_coil

@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <material name="color_md1">
+      <color rgba="0.1 0.1 0.1 1"/>
+    </material>
+    <material name="color_md2">
+      <color rgba="0.2 0.2 0.2 1"/>
+    </material>
+
+    <xacro:macro name="metal_detector" params="parent *origin">
+
+      <joint name="metal_detector_joint" type="fixed">
+        <xacro:insert_block name="origin" />
+        <parent link="${parent}"/>
+        <child link="metal_detector_support"/>
+      </joint>
+
+      <link name="metal_detector_support">
+        <inertial>
+          <origin
+            xyz="0.0900141398194709 0.232179087240077 0.00300000000000006"
+            rpy="0 0 0" />
+          <mass
+            value="0.618082547555731" />
+          <inertia
+            ixx="0.00615559634016673"
+            ixy="3.11302812941868E-07"
+            ixz="-4.3754562374128E-22"
+            iyy="0.00893048991943517"
+            iyz="2.15052000766473E-21"
+            izz="0.0150823777643166" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh
+              filename="package://metal_detector_msgs/model/gazebo/meshes/metal_detector_support.STL" />
+          </geometry>
+          <material name="color_md1" />
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh
+              filename="package://metal_detector_msgs/model/gazebo/meshes/metal_detector_support.STL" />
+          </geometry>
+        </collision>
+      </link>
+      <gazebo reference="metal_detector_support">
+        <material>Gazebo/FlatBlack</material>
+        <turnGravityOff>false</turnGravityOff>
+      </gazebo>
+
+      <link name="left_coil_support">
+        <inertial>
+          <origin
+            xyz="-0.308179316749173 0.00299999999999995 0.000331486341720255"
+            rpy="0 0 0" />
+          <mass
+            value="0.103021950407818" />
+          <inertia
+            ixx="0.00021662411696847"
+            ixy="-1.18437463523487E-22"
+            ixz="-2.06795153138257E-21"
+            iyy="0.000432630102234494"
+            iyz="2.90517047099652E-20"
+            izz="0.000216624116968471" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh
+              filename="package://metal_detector_msgs/model/gazebo/meshes/left_coil_support.STL" />
+          </geometry>
+          <material name="color_md2" />
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh
+              filename="package://metal_detector_msgs/model/gazebo/meshes/left_coil_support.STL" />
+          </geometry>
+        </collision>
+      </link>
+      <gazebo reference="left_coil_support">
+        <material>Gazebo/FlatBlack</material>
+        <turnGravityOff>false</turnGravityOff>
+      </gazebo>
+
+      <joint name="left_coil_support_joint" type="fixed">
+        <origin
+          xyz="0.244299457058899 0.280105906574019 -0.00600000000000001"
+          rpy="1.5707963267949 0 0" />
+        <parent
+          link="metal_detector_support" />
+        <child
+          link="left_coil_support" />
+        <axis
+          xyz="0 0 0" />
+      </joint>
+
+      <link name="left_coil">
+        <inertial>
+          <origin
+            xyz="-0.308179316749173 -0.00900000000000012 0.000331486341720255"
+            rpy="0 0 0" />
+          <mass
+            value="0.103021950407818" />
+          <inertia
+            ixx="0.00021662411696847"
+            ixy="-1.18437463523487E-22"
+            ixz="-2.8951321439356E-21"
+            iyy="0.000432630102234494"
+            iyz="2.90517047099652E-20"
+            izz="0.000216624116968471" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh
+              filename="package://metal_detector_msgs/model/gazebo/meshes/left_coil.STL" />
+          </geometry>
+          <material name="color_md1" />
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh
+              filename="package://metal_detector_msgs/model/gazebo/meshes/left_coil.STL" />
+          </geometry>
+        </collision>
+      </link>
+      <gazebo reference="left_coil">
+        <material>Gazebo/FlatBlack</material>
+        <turnGravityOff>false</turnGravityOff>
+      </gazebo>
+
+      <joint name="left_coil_joint" type="fixed">
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <parent
+          link="left_coil_support" />
+        <child
+          link="left_coil" />
+        <axis
+          xyz="0 -1 0" />
+      </joint>
+
+      <link name="right_coil_support">
+        <inertial>
+          <origin
+            xyz="0 0.00300000000000006 -1.38777878078145E-17"
+            rpy="0 0 0" />
+          <mass
+            value="0.103021950407818" />
+          <inertia
+            ixx="0.00021662411696847"
+            ixy="-2.82357088244412E-22"
+            ixz="8.27180612553028E-21"
+            iyy="0.000432630102234494"
+            iyz="2.89010199750452E-20"
+            izz="0.000216624116968471" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh
+              filename="package://metal_detector_msgs/model/gazebo/meshes/right_coil_support.STL" />
+          </geometry>
+          <material name="color_md2" />
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh
+              filename="package://metal_detector_msgs/model/gazebo/meshes/right_coil_support.STL" />
+          </geometry>
+        </collision>
+      </link>
+      <gazebo reference="right_coil_support">
+        <material>Gazebo/FlatBlack</material>
+        <turnGravityOff>false</turnGravityOff>
+      </gazebo>
+
+      <joint name="right_coil_support_joint" type="fixed">
+        <origin
+          xyz="0.244299457058899 0.280105906574019 -0.00600000000000001"
+          rpy="1.5707963267949 0 0" />
+        <parent
+          link="metal_detector_support" />
+        <child
+          link="right_coil_support" />
+        <axis
+          xyz="0 0 0" />
+      </joint>
+
+      <link name="right_coil">
+        <inertial>
+          <origin
+            xyz="0 -0.00900000000000006 -5.55111512312578E-17"
+            rpy="0 0 0" />
+          <mass
+            value="0.103021950407818" />
+          <inertia
+            ixx="0.00021662411696847"
+            ixy="-2.37275744860272E-22"
+            ixz="6.61744490042423E-21"
+            iyy="0.000432630102234494"
+            iyz="2.87889370020442E-20"
+            izz="0.000216624116968471" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh
+              filename="package://metal_detector_msgs/model/gazebo/meshes/right_coil.STL" />
+          </geometry>
+          <material name="color_md1" />
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh
+              filename="package://metal_detector_msgs/model/gazebo/meshes/right_coil.STL" />
+          </geometry>
+        </collision>
+      </link>
+      <gazebo reference="right_coil">
+        <material>Gazebo/FlatBlack</material>
+        <turnGravityOff>false</turnGravityOff>
+      </gazebo>
+
+      <joint name="right_coil_joint" type="fixed">
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <parent
+          link="right_coil_support" />
+        <child
+          link="right_coil" />
+        <axis
+          xyz="0 -1 0" />
+      </joint>
+
+    </xacro:macro>
+</robot>
