@@ -1,4 +1,4 @@
-# metal_detector_msgs
+# Open Hardware, ROS-enable metal detector
 
 This is a ROS package for the metal detector used in the [HRATC2017](http://inf.ufrgs.br/hratc2017/HRATC2017/Welcome.html) robot programming competition. The detector is based on open-hardware and software design.
 
@@ -85,5 +85,7 @@ Bus 002 Device 009: ID <b>2341</b>:0043 Arduino SA Uno R3 (CDC ACM)
 
 - The original eletronics board was designed by [LucasLab](https://translate.google.com/translate?sl=auto&tl=en&js=y&prev=_t&hl=pt-BR&ie=UTF-8&u=http%3A%2F%2Fwww.lucaslab.grandhost.pl%2Flucaslab%2Fwykrywacz_PI.htm&edit-text=)
 - The integration of the eletronics board with Arduino is by Augusto Bergamin;
-- The Arduino firmware is by Augusto Bergamin and Renan Maidana.
-- The ROS node design and ROS launch is by Renan Maidana.
+- The Arduino firmware is by Augusto Bergamin and Renan Maidana;
+- The ROS node design and ROS launch is by Renan Maidana;
+- Conversion from SolidWorks to Gazebo by Renan Maffei and Mathias Mantelli.
+- Readmes edits by Alexandre Amory.
