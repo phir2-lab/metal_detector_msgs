@@ -1,4 +1,0 @@
-metal_detector_msgs/Coil[] coila
----
-bool success
-string status_message
