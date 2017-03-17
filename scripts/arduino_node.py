@@ -106,11 +106,11 @@ def detector():
 
 		# Get calibration parameters from parameter server
 		try:
-			sat = float(rospy.get_param('calibration/sat'))
+			sat = float(rospy.get_param('/metal_detector/calibration/sat'))
 		except KeyError:	# rospy will raise this error if the parameter is not found
 			sat = 1.0		# default to 1.0
 		try:
-			ref = float(rospy.get_param('calibration/ref'))
+			ref = float(rospy.get_param('/metal_detector/calibration/ref'))
 		except KeyError: 	# rospy will raise this error if the parameter is not found
 			ref = 1.0		# default to 1.0
 
@@ -135,8 +135,8 @@ def detector():
 		# Catch some silly errors (when serial sends two ","s for example)
 		try:
 			# Normalize the data comming from the coils, and caps them to the interval [0 - ref]
-			coil_msg.left_coil = max(0, min((ref*float(data[0]))/sat, ref))
-			coil_msg.right_coil = max(0, min((ref*float(data[1]))/sat, ref))
+			coil_msg.left_coil = max(0, min(ref*float(data[0])/sat, ref))
+			coil_msg.right_coil = max(0, min(ref*float(data[1])/sat, ref))
 		except (ValueError, IndexError):
 			pass
 		pub.publish(coil_msg)
